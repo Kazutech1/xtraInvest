@@ -94,10 +94,10 @@ function Mobile() {
             <a href="#" className="px-4 py-3 text-white bg-slate-600 hover:bg-slate-500 transition-colors">
               Home
             </a>
-            <a href="#" className="px-4 py-3 text-white hover:bg-slate-600 transition-colors">
+            <a href="/about" className="px-4 py-3 text-white hover:bg-slate-600 transition-colors">
               About
             </a>
-            <a href="#" className="px-4 py-3 text-white hover:bg-slate-600 transition-colors">
+            <a href="/services" className="px-4 py-3 text-white hover:bg-slate-600 transition-colors">
               Services
             </a>
             <a href="#" className="px-4 py-3 text-white hover:bg-slate-600 transition-colors">
