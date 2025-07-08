@@ -15,9 +15,10 @@ import Navbar from "../components/Navbar";
 import Mission from "../components/Mission";
 import Stats from "../components/Stats";
 import Services from "../components/Services";
-import Testimonials from "../components/tESTIMONIALS.JSX";
+// import Testimonials from "../components/tESTIMONIALS.JSX";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import Testimonials from "../components/Testimonials";
 
 
 

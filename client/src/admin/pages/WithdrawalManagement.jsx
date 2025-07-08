@@ -68,7 +68,6 @@ const AdminWithdrawals = () => {
     completed: <CheckBadgeIcon className="h-4 w-4 text-green-500" />,
     rejected: <NoSymbolIcon className="h-4 w-4 text-red-500" />,
     processing: <ArrowPathRoundedSquareIcon className="h-4 w-4 text-blue-500" />,
-    completed: <CheckBadgeIcon className="h-4 w-4 text-purple-500" />,
     failed: <NoSymbolIcon className="h-4 w-4 text-gray-500" />
   };
 
