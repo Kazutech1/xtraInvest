@@ -2,19 +2,19 @@ import { useState, useEffect } from "react";
 import { MessageCircle, Phone, FileText, Map, Menu, X } from "lucide-react";
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
-import heroBg from "./assets/slide.jpeg";
-import boxBg from "./assets/box3.jpeg";
-import m1 from "./assets/m1.jpeg";
-import m2 from "./assets/m2.jpeg";
-import m3 from "./assets/m3.jpeg";
-import img1 from "./assets/img1.jpeg";
-import img2 from "./assets/img2.jpeg";
-import tst1 from "./assets/tst1.jpeg";
-import tst2 from "./assets/tst2.jpeg";
-import tst3 from "./assets/tst3.jpeg";
-import logo from "./assets/logo.png";
+import heroBg from "../assets/slide.jpeg";
+import boxBg from "../assets/box3.jpeg";
+import m1 from "../assets/m1.jpeg";
+import m2 from "../assets/m2.jpeg";
+import m3 from "../assets/m3.jpeg";
+import img1 from "../assets/img1.jpeg";
+import img2 from "../assets/img2.jpeg";
+import tst1 from "../assets/tst1.jpeg";
+import tst2 from "../assets/tst2.jpeg";
+import tst3 from "../assets/tst3.jpeg";
+import logo from "../assets/logo.png";
 
-function App() {
+function Mobile() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -767,4 +767,4 @@ function App() {
   );
 }
 
-export default App
+export default Mobile

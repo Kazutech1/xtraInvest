@@ -20,15 +20,27 @@ import AdminWithdrawals from './admin/pages/WithdrawalManagement';
 import AdminPlans from './admin/pages/PlanManagement';
 import AdminWallets from './admin/pages/AddressManagement';
 import InvestmentPage from './pages/Investment';
+import Mobile from './components/Mobile';
+import useIsMobile from './hooks/useIsMobile';
 
 const App = () => {
+
+    const isMobile = useIsMobile(); // 👈 check screen width
+
+
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
         <main className="flex-grow">
           <Routes>
             {/* Public Routes */}
-            <Route path="/" element={<Home />} />
+             {isMobile ? (
+              <Route path="/" element={<Mobile />} />
+            ) : (
+              <Route path="/" element={<Home />} />
+            )}
+
+
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/auth" element={<AuthPage />} />
