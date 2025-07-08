@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Mission from '../components/Mission';
-import Testimonials from '../components/tESTIMONIALS.JSX';
 import Footer from '../components/Footer';
 import img1 from "../assets/img1.jpeg"
+import Testimonials from '../components/Testimonials';
 
 
 const About = () => {
