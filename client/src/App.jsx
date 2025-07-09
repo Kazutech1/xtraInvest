@@ -22,6 +22,7 @@ import AdminWallets from './admin/pages/AddressManagement';
 import InvestmentPage from './pages/Investment';
 import Mobile from './components/Mobile';
 import useIsMobile from './hooks/useIsMobile';
+import ZohoChat from './components/ZohoChat';
 
 const App = () => {
 
@@ -30,6 +31,7 @@ const App = () => {
 
   return (
     <Router>
+        <ZohoChat /> 
       <div className="min-h-screen flex flex-col">
         <main className="flex-grow">
           <Routes>
