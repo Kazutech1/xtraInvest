@@ -159,9 +159,9 @@ const Dashboard = () => {
               </p>
             </div>
           </div>
-          <button className="rounded-full bg-white p-3 text-blue-600 hover:bg-blue-50 transition-all shadow-md hover:shadow-lg">
+          {/* <button className="rounded-full bg-white p-3 text-blue-600 hover:bg-blue-50 transition-all shadow-md hover:shadow-lg">
             <Headphones className="h-5 w-5" />
-          </button>
+          </button> */}
         </div>
 
         {/* Metrics Grid */}
