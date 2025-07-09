@@ -89,27 +89,32 @@ function Mobile() {
       </header>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-slate-700 p-4 fixed inset-0 z-40 mt-16 overflow-y-auto">
-          <div className="flex flex-col space-y-2">
-            <a href="#" className="px-4 py-3 text-white bg-slate-600 hover:bg-slate-500 transition-colors">
-              Home
-            </a>
-            <a href="/about" className="px-4 py-3 text-white hover:bg-slate-600 transition-colors">
-              About
-            </a>
-            <a href="/services" className="px-4 py-3 text-white hover:bg-slate-600 transition-colors">
-              Services
-            </a>
-            <a href="#" className="px-4 py-3 text-white hover:bg-slate-600 transition-colors">
-              FAQ
-            </a>
-            <a href="#" className="px-4 py-3 text-white hover:bg-slate-600 transition-colors">
-              Contact
-            </a>
-          </div>
-        </div>
-      )}
+    
+
+{/* Sidebar - Mobile & Desktop */}
+<div
+  className={`mt-13 fixed top-0 left-0 h-full w-64 bg-slate-700 z-40 transform transition-transform duration-300 ease-in-out
+    ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}
+>
+  <div className="mt-16 p-4 flex flex-col space-y-2">
+    <a href="#" className="px-4 py-3 text-white bg-slate-600 hover:bg-slate-500 transition-colors">
+      Home
+    </a>
+    <a href="/about" className="px-4 py-3 text-white hover:bg-slate-600 transition-colors">
+      About
+    </a>
+    <a href="/services" className="px-4 py-3 text-white hover:bg-slate-600 transition-colors">
+      Services
+    </a>
+    <a href="#" className="px-4 py-3 text-white hover:bg-slate-600 transition-colors">
+      FAQ
+    </a>
+    <a href="#" className="px-4 py-3 text-white hover:bg-slate-600 transition-colors">
+      Contact
+    </a>
+  </div>
+</div>
+
 
       {/* Navigation - Desktop */}
       <nav className="hidden md:block bg-slate-700 sticky top-0 z-40">
