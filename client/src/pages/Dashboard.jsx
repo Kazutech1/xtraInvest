@@ -23,6 +23,7 @@ import useTransactions from "../hooks/useHistory";
 const Dashboard = () => {
   const [copied, setCopied] = useState(false);
   const [dashboardData, setDashboardData] = useState(null);
+  const baseUrl = import.meta.env.VITE_API_BASE_URL
   
   // Use the transactions hook
   const { 
@@ -142,7 +143,7 @@ const Dashboard = () => {
     );
   }
 
-  const referralLink = `https://platform.com/ref/${dashboardData?.referralCode || 'yourcode'}`;
+const referralLink = `https://www.xtrainvest.top/auth?ref=${dashboardData?.referralCode || 'yourcode'}`;
   const referralCode = dashboardData?.referralCode || 'YOURCODE';
 
   return (

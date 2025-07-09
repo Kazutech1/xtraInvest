@@ -193,13 +193,13 @@ const DepositPage = () => {
                     />
                     {selectedCrypto && (
                       <div className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500">
-                        {selectedCrypto}
+                       USDT
                       </div>
                     )}
                   </div>
                   {selectedCryptoData && (
                     <p className="text-sm text-gray-500">
-                      Minimum deposit: {selectedCryptoData.minDeposit} {selectedCrypto}
+                      Minimum deposit: {selectedCryptoData.minDeposit} USDT
                     </p>
                   )}
                 </div>

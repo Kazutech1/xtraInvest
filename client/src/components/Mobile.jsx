@@ -730,10 +730,31 @@ function Mobile() {
                  
                 </li>
                 <li>
-                  <a href="#" className="text-gray-600 hover:text-slate-800 transition-colors flex items-center gap-2 text-sm md:text-base">
-                    <span>›</span> Contact Us
-                  </a>
-                </li>
+  <a
+    href="#"
+    className="text-gray-600 hover:text-slate-800 transition-colors flex items-center gap-2 text-sm md:text-base"
+  >
+    <span>›</span> Contact Us
+  </a>
+</li>
+
+<li className="flex items-start gap-2 text-gray-600 text-sm md:text-base">
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-800 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13 21.314l-4.657-4.657A8 8 0 1117.657 16.657z" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>
+  <span>Level 57/19 Martin Pl, Sydney NSW 2000, Australia</span>
+</li>
+
+<li className="flex items-center gap-2 text-gray-600 text-sm md:text-base">
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12H8m8 0l-4-4m4 4l-4 4m8-12H4a2 2 0 00-2 2v16l4-4h14a2 2 0 002-2V6a2 2 0 00-2-2z" />
+  </svg>
+  <a href="mailto:support@leganexuscom.org" className="hover:text-slate-800 transition-colors">
+    support@leganexuscom.org
+  </a>
+</li>
+
                 <li>
                 
                 </li>

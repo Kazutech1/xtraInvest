@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
+import { sendSignupEmail } from '../utils/emailService';
 
 const AuthPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { loading, error, register, login, isAuthenticated } = useAuth();
+  const searchParams = new URLSearchParams(location.search);
+  const refCode = searchParams.get('ref');
   
   const [isLogin, setIsLogin] = useState(location.pathname === '/auth');
   const [formData, setFormData] = useState({
@@ -15,7 +18,8 @@ const AuthPage = () => {
     email: '',
     password: '',
     confirmPassword: '',
-    referralCode: ''
+      referralCode: refCode || ''
+
   });
 
   // Redirect if already authenticated
@@ -63,6 +67,12 @@ const AuthPage = () => {
       
       const result = await register(userData);
       if (result) {
+      
+
+       await sendSignupEmail({
+        name: userData.fullName,  // map fullName to name
+        email: userData.email
+      });
         navigate('/dashboard');
       }
     }
@@ -211,6 +221,7 @@ const AuthPage = () => {
                       type="text"
                       value={formData.referralCode}
                       onChange={handleChange}
+                      disabled={!!refCode}
                       className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     />
                   </div>

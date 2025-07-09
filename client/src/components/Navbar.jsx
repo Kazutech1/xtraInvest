@@ -39,8 +39,9 @@ const Navbar = ({ toggleMenu, isMenuOpen }) => {
             <div className="flex items-center gap-2">
               <Map className="w-5 h-5 text-gray-600" />
               <div>
-                <p className="text-xs text-gray-600">VIC 3000, USA</p>
-                <p className="font-semibold text-slate-800">121 King St, California</p>
+                <p className="text-xs text-gray-600">Level 57/19 Martin Pl</p>
+                <p className="font-semibold text-slate-800"> Sydney NSW 2000, Australia</p>
+               
               </div>
             </div>
           </div>
