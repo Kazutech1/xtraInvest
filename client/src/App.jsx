@@ -32,6 +32,26 @@ const App = () => {
   return (
     <Router>
         <ZohoChat /> 
+     <a
+  href="https://wa.me/14322848148"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    position: 'fixed',
+    bottom: '100px',
+    right: '10px',
+    zIndex: 999
+  }}
+>
+  <img
+    src="https://img.icons8.com/color/48/000000/whatsapp--v1.png"
+    alt="Chat on WhatsApp"
+    style={{ width: '60px', height: '60px' }}
+  />
+</a>
+
+
+
       <div className="min-h-screen flex flex-col">
         <main className="flex-grow">
           <Routes>
