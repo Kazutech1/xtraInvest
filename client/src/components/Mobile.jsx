@@ -189,7 +189,7 @@ function Mobile() {
       <div className="animate-buttonAppear delay-1100">
         <Link to='/auth'>
               <button className="bg-slate-700 hover:bg-slate-800 text-white px-8 py-3 md:px-10 md:py-4 text-lg md:text-xl rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-          Our Solutions
+          Get Started
         </button>
         </Link>
       
