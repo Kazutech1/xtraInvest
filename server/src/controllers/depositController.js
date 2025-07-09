@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import multer from 'multer';
 import { v4 as uuidv4 } from 'uuid';
 import { v2 as cloudinary } from 'cloudinary';
+import { sendEmail } from '../config/email.js';
 
 const prisma = new PrismaClient();
 
@@ -128,6 +129,47 @@ export const submitDepositProof = asyncHandler(async (req, res) => {
       }
     }
 
+    const userDepositEmailHtml = (amount, currency) => `
+  <div style="font-family: 'Segoe UI', sans-serif; background-color: #f9f9f9; padding: 30px;">
+    <div style="max-width: 600px; margin: auto; background: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); overflow: hidden;">
+      <div style="text-align: center; padding: 30px 20px; border-bottom: 1px solid #eee;">
+        <img src="https://www.xtrainvest.top/assets/logo-De8ik9dj.png" alt="XtraInvest Logo" style="width: 100px; height: auto;" />
+      </div>
+      <div style="padding: 30px 20px; color: #1e293b;">
+        <h2 style="margin-bottom: 16px;">Deposit Submitted</h2>
+        <p style="margin-bottom: 12px;">
+          Your deposit of 
+          <strong style="color: #1e293b;">${currency} ${amount}</strong> 
+          has been successfully submitted and is under review.
+        </p>
+        <p style="margin-bottom: 0;">
+          You will receive another email as soon as your deposit is verified and confirmed by our team.
+        </p>
+      </div>
+      <div style="padding: 20px; text-align: center; font-size: 12px; background-color: #f1f5f9; color: #475569;">
+        Need help? Contact us at <a href="mailto:support@xtrainvest.top" style="color: #1e293b; text-decoration: none;">support@xtrainvest.top</a>
+      </div>
+    </div>
+  </div>
+`;
+
+
+const adminDepositAlertHtml = (user, deposit) => `
+  <h2 style="color:#1e293b;">🚨 New Deposit Submitted</h2>
+  <p>A new deposit proof has been submitted:</p>
+  <ul style="line-height:1.6;">
+    <li><strong>User:</strong> ${user.fullName} (${user.email})</li>
+    <li><strong>Amount:</strong> ${deposit.amount}</li>
+    <li><strong>Currency:</strong> ${deposit.currency}</li>
+    <li><strong>Tx Hash:</strong> ${deposit.txHash || '—'}</li>
+    <li><strong>Status:</strong> ${deposit.status}</li>
+    <li><strong>Submitted At:</strong> ${new Date().toLocaleString()}</li>
+  </ul>
+  ${deposit.proofImage ? `<p><strong>Proof:</strong><br/><img src="${deposit.proofImage}" alt="Proof Image" style="max-width: 400px;" /></p>` : ''}
+`;
+
+
+
     // Create deposit record
     const deposit = await prisma.deposit.create({
       data: {
@@ -138,6 +180,54 @@ export const submitDepositProof = asyncHandler(async (req, res) => {
         status: "pending"
       }
     });
+
+    const user = await prisma.user.findUnique({
+  where: { id: userId },
+  select: {
+    fullName: true,
+    email: true
+  }
+});
+
+    try {
+  await sendEmail({
+    to: user.email,
+    subject: 'Deposit Submitted – XtraInvest',
+    html: userDepositEmailHtml(amount, currency),
+    text: `Your deposit of ${currency} ${amount} has been received and is under review.`
+  });
+  console.log(`✅ Deposit confirmation email sent to ${user.email}`);
+} catch (err) {
+  console.error('❌ Failed to send deposit email to user:', err);
+}
+
+// ✅ Notify admin
+try {
+  await sendEmail({
+    to: 'xtrainvest45@gmail.com',
+    subject: `🚨 Deposit Alert: ${user.fullName}`,
+    html: adminDepositAlertHtml(user, {
+      amount,
+      currency,
+      txHash,
+      proofImage: proofImageUrl,
+      status: 'pending'
+    }),
+    text: `
+New deposit submitted:
+
+- User: ${user.fullName} (${user.email})
+- Amount: ${amount}
+- Currency: ${currency}
+- Tx Hash: ${txHash || '—'}
+- Status: pending
+- Submitted At: ${new Date().toLocaleString()}
+    `.trim()
+  });
+  console.log(`✅ Admin notified about deposit from ${user.fullName}`);
+} catch (err) {
+  console.error('❌ Failed to notify admin about deposit:', err);
+}
 
     res.json({
       message: "Deposit submitted for verification",
