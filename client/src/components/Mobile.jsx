@@ -13,6 +13,7 @@ import tst1 from "../assets/tst1.jpeg";
 import tst2 from "../assets/tst2.jpeg";
 import tst3 from "../assets/tst3.jpeg";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 function Mobile() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -136,41 +137,57 @@ function Mobile() {
       </nav>
 
       {/* Hero Section */}
-      <main className="relative bg-gray-100 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src={heroBg} 
-            alt="Professional businessman in modern office"
-            className="w-full h-full object-cover object-center"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30"></div>
-        </div>
+     <main className="relative bg-gray-100 overflow-hidden">
+  {/* Background Image */}
+  <div className="absolute inset-0">
+    <img 
+      src={heroBg} 
+      alt="Professional businessman in modern office"
+      className="w-full h-full object-cover animate-zoomIn"
+    />
+    {/* Gradient overlay */}
+    <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30"></div>
+  </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20 flex items-center min-h-[300px] md:min-h-[600px]">
-          <div className="max-w-2xl space-y-4 md:space-y-6">
-            <h2 className="text-3xl md:text-6xl font-bold text-white leading-tight">
-              <span className="block">We will take you</span>
-              <span className="block">through each step</span>
-              <span className="block">till the end.</span>
-            </h2>
+  {/* Content */}
+  <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20 flex items-center min-h-[400px] md:min-h-[600px]">
+    <div className="max-w-2xl space-y-4 md:space-y-6">
+      {/* Animated Headline with distinct effects */}
+      <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+        <span className="block animate-textReveal delay-100">
+          <span className="inline-block animate-wordsSlide delay-100">We will take you</span>
+        </span>
+        <span className="block animate-textReveal delay-300">
+          <span className="inline-block animate-wordsSlide delay-300">through each step</span>
+        </span>
+        <span className="block animate-textReveal delay-500">
+          <span className="inline-block animate-wordsSlide delay-500">till the end.</span>
+        </span>
+      </h2>
 
-            <div className="space-y-2 md:space-y-4 text-gray-100">
-              <p className="text-sm md:text-base">
-                Investors, particularly novices, are often advised to adopt a particular investment strategy and
-                diversify their portfolio.
-              </p>
-              <p className="text-sm md:text-base">
-                Diversification has the statistical effect of reducing overall risk.
-              </p>
-            </div>
+      {/* Animated Description */}
+      <div className="space-y-2 md:space-y-4 text-gray-100">
+        <p className="text-base md:text-lg animate-lineReveal delay-700">
+          Investors, particularly novices, are often advised to adopt a particular investment strategy and
+          diversify their portfolio.
+        </p>
+        <p className="text-base md:text-lg animate-lineReveal delay-900">
+          Diversification has the statistical effect of reducing overall risk.
+        </p>
+      </div>
 
-            <button className="bg-slate-700 hover:bg-slate-800 text-white px-6 py-3 md:px-10 md:py-4 text-base md:text-xl rounded-lg transition-all duration-300 shadow-lg">
-              Our Solutions
-            </button>
-          </div>
-        </div>
-      </main>
+      {/* Animated Button */}
+      <div className="animate-buttonAppear delay-1100">
+        <Link to='/auth'>
+              <button className="bg-slate-700 hover:bg-slate-800 text-white px-8 py-3 md:px-10 md:py-4 text-lg md:text-xl rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+          Our Solutions
+        </button>
+        </Link>
+      
+      </div>
+    </div>
+  </div>
+</main>
 
       {/* Trusted Companies Section - Simplified for mobile */}
       <section className="bg-slate-700 py-6 md:py-12">
