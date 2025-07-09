@@ -23,6 +23,7 @@ import InvestmentPage from './pages/Investment';
 import Mobile from './components/Mobile';
 import useIsMobile from './hooks/useIsMobile';
 import ZohoChat from './components/ZohoChat';
+import { MessageCircle } from 'lucide-react';
 
 const App = () => {
 
@@ -33,22 +34,23 @@ const App = () => {
     <Router>
         <ZohoChat /> 
      <a
-  href="https://wa.me/14322848148"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    position: 'fixed',
-    bottom: '100px',
-    right: '10px',
-    zIndex: 999
-  }}
->
-  <img
-    src="https://img.icons8.com/color/48/000000/whatsapp--v1.png"
-    alt="Chat on WhatsApp"
-    style={{ width: '60px', height: '60px' }}
-  />
-</a>
+      href="https://wa.me/14322848148?text=Hi%20there%2C%20I%20need%20help%20with%20your%20website"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        position: "fixed",
+        bottom: "100px",
+        right: "10px",
+        zIndex: 999,
+        backgroundColor: "#25D366",
+        padding: "12px",
+        borderRadius: "50%",
+        boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+        color: "white",
+      }}
+    >
+      <MessageCircle size={28} strokeWidth={2.5} />
+    </a>
 
 
 
