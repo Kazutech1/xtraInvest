@@ -33,7 +33,7 @@ const Navbar = ({ toggleMenu, isMenuOpen }) => {
               <FileText className="w-5 h-5 text-gray-600" />
               <div>
                 <p className="text-xs text-gray-600">Phone Number</p>
-                <p className="font-semibold text-slate-800">+1 (800) 740 134</p>
+                <p className="font-semibold text-slate-800">+1 (432) 284‑8148</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -80,11 +80,18 @@ const Navbar = ({ toggleMenu, isMenuOpen }) => {
               FAQ
             </Link>
             <Link 
-              to="/contact" 
+              to="/" 
               className={`px-4 py-2 text-white transition-colors ${isActive('/contact') ? 'bg-slate-600' : 'hover:bg-slate-600'}`}
               onClick={toggleMenu}
             >
               Contact
+            </Link>
+             <Link 
+              to="/auth" 
+              className={`px-4 py-2 text-white transition-colors ${isActive('/faq') ? 'bg-slate-600' : 'hover:bg-slate-600'}`}
+              onClick={toggleMenu}
+            >
+              Log In
             </Link>
           </div>
         </div>
