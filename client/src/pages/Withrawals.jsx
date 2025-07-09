@@ -230,18 +230,18 @@ const WithdrawalPage = () => {
                 <div className="space-y-2">
                   <label className="block text-sm font-medium text-gray-700">Withdrawal Address</label>
                   <input
-                    placeholder={`Enter ${cryptoData.name} (${cryptoData.network}) address`}
+                    placeholder={`Enter address`}
                     value={withdrawalAddress}
                     onChange={(e) => setWithdrawalAddress(e.target.value)}
                     className="block w-full rounded-lg border border-gray-300 py-2 px-3 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
                   />
                   <p className="text-sm text-gray-500">
-                    Make sure this address supports {cryptoData.network} transfers
+                 
                   </p>
                 </div>
 
                 {/* Contract Address (for reference) */}
-                <div className="space-y-2">
+                {/* <div className="space-y-2">
                   <label className="block text-sm font-medium text-gray-700">USDT Contract Address</label>
                   <div className="flex items-center gap-2">
                     <input
@@ -263,7 +263,7 @@ const WithdrawalPage = () => {
                       )}
                     </button>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Transaction Summary */}
                 {amount && withdrawalAmount > 0 && (
@@ -346,7 +346,7 @@ const WithdrawalPage = () => {
           </div>
 
           {/* Information Sidebar */}
-          <div className="space-y-6">
+          {/* <div className="space-y-6">
             <div className="rounded-xl bg-white p-6 shadow-lg">
               <h2 className="mb-4 text-xl font-bold text-gray-900">TRC20 Network Info</h2>
               <div className="space-y-4 text-sm">
@@ -369,9 +369,9 @@ const WithdrawalPage = () => {
                   <p>Standard network fee: {cryptoData.fee} {cryptoData.symbol}</p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="rounded-lg bg-yellow-50 p-4 text-yellow-800">
+            {/* <div className="rounded-lg bg-yellow-50 p-4 text-yellow-800">
               <div className="flex items-start gap-2">
                 <AlertTriangle className="h-5 w-5 flex-shrink-0" />
                 <div>
@@ -381,7 +381,7 @@ const WithdrawalPage = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="rounded-lg bg-blue-50 p-4 text-blue-800">
               <div className="flex items-start gap-2">
@@ -399,9 +399,9 @@ const WithdrawalPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      
 
-      {/* Success Popup */}
+    
       {showSuccessPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6 relative animate-in fade-in slide-in-from-bottom-4 duration-300">
