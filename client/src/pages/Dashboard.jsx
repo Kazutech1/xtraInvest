@@ -132,11 +132,15 @@ const Dashboard = () => {
           <h3 className="mt-2 text-lg font-medium text-gray-900">Error loading dashboard</h3>
           <p className="mt-1 text-gray-500">{error}</p>
           <Link to='/auth'>
-            <button
-              className="mt-4 inline-flex items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            >
-              Try again
-            </button>
+           <button
+  onClick={() => {
+    localStorage.removeItem('token');
+    // Optional: redirect to login page or refresh the page
+  }}
+  className="mt-4 inline-flex items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+>
+  Try Again
+</button>
           </Link>
         </div>
       </div>
